@@ -2,7 +2,6 @@ import requests
 import time
 
 def keep_alive(url):
-    while True:
         try:
             response = requests.get(url)
             print(f"Sent request to {url}: {response.status_code}")
