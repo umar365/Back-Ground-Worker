@@ -11,5 +11,5 @@ def keep_alive(url):
         time.sleep(60)  # Wait for 60 seconds before the next request
 
 if __name__ == "__main__":
-    target_url = "https://your-website-url.com"  # Change this to your website
+    target_url = "https://sabits-website.onrender.com"  # Change this to your website
     keep_alive(target_url)
