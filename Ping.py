@@ -1,22 +1,15 @@
 import requests
 import time
 
-# URL of your website
-url = "https://sabits-website.onrender.com"  # Replace with your website URL
-
-# Time interval in seconds
-interval = 60  # Adjust as needed (e.g., 300 seconds = 5 minutes)
-
-try:
+def keep_alive(url):
     while True:
-        # Send a GET request to the URL
-        response = requests.get(url)
-        
-        # Print the response status code
-        print(f"Pinged {url}, Status Code: {response.status_code}")
-        
-        # Wait for the specified interval before the next request
-        time.sleep(interval)
+        try:
+            response = requests.get(url)
+            print(f"Sent request to {url}: {response.status_code}")
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+        time.sleep(60)  # Wait for 60 seconds before the next request
 
-except KeyboardInterrupt:
-    print("\nStopping the script...")
+if __name__ == "__main__":
+    target_url = "https://your-website-url.com"  # Change this to your website
+    keep_alive(target_url)
