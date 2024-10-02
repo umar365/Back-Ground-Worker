@@ -3,7 +3,7 @@ name: Run Python Script
 # Controls when the action will run.
 on:
   schedule:
-    - cron: ' */1 * * * *'  # This runs the script every hour (adjust as needed)
+    - cron: ' * * * * *'  # This runs the script every hour (adjust as needed)
   workflow_dispatch:  # Allows manual triggers for testing
 
 jobs:
