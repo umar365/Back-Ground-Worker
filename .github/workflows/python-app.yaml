@@ -3,7 +3,7 @@ name: Run Python Script
 # Controls when the action will run.
 on:
   schedule:
-    - cron: ' */3 * * * *'  # This runs the script every hour (adjust as needed)
+    - cron: '*/5 * * * *'  # This runs the job every minute
   workflow_dispatch:  # Allows manual triggers for testing
 
 jobs:
@@ -12,10 +12,10 @@ jobs:
     
     steps:
     - name: Checkout the code
-      uses: actions/checkout@v2  # This checks out the repository code
+      uses: actions/checkout@v3  # This checks out the repository code
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: '3.12.3'  # Define the Python version you want to use
 
