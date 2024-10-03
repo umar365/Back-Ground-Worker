@@ -25,3 +25,6 @@ jobs:
       run: |
         python Ping.py
 
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@v2.0.6
+            
