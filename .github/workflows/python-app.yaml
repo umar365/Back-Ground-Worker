@@ -1,23 +1,21 @@
-name: Run Python Script
+name: Run Python Script on Webhook Trigger
 
-# Controls when the action will run.
 on:
-  schedule:
-    - cron: '*/8 * * * *'  # This runs the job every 2 minute
-  workflow_dispatch:  # Allows manual triggers for testing
+  workflow_dispatch: # allows manual triggers via GitHub UI
+  repository_dispatch: # this is the webhook trigger event
 
 jobs:
   run-script:
-    runs-on: ubuntu-latest  # The environment to run the script on (Linux)
-    
+    runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout the code
-      uses: actions/checkout@v3  # This checks out the repository code
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.12.3'  # Define the Python version you want to use
+        python-version: '3.12.3'
 
     - name: Install dependencies
       run: |
@@ -25,6 +23,5 @@ jobs:
 
     - name: Run Python script
       run: |
-        python Ping.py  
-        
-      # Replace this with your Python script path
+        python Ping.py
+
