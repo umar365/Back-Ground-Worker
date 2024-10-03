@@ -27,4 +27,7 @@ jobs:
 
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2.0.6
+      with:
+          retain_days: 1  # Retain workflow runs from the last 1 days
+          delete_run_logs: true 
             
