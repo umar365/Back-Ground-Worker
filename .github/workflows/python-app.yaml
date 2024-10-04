@@ -1,5 +1,6 @@
 name: Run Python Script on Webhook Trigger
 
+
 on:
   workflow_dispatch: # allows manual triggers via GitHub UI
   repository_dispatch: # this is the webhook trigger event
@@ -7,6 +8,10 @@ on:
 jobs:
   run-script:
     runs-on: ubuntu-latest
+
+    permissions:
+      actions: read
+      contents: read
 
     steps:
     - name: Checkout code
@@ -28,6 +33,7 @@ jobs:
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2.0.6
       with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           retain_days: 1  # Retain workflow runs from the last 1 days
           
             
